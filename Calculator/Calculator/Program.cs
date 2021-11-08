@@ -6,7 +6,14 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Write("What is your first number? ");
+            double firstNumber = Double.Parse(Console.ReadLine());
+
+            Console.Write("What is your first number? ");
+            double secondNumber = Double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Together they multiply to make: " + (firstNumber * secondNumber));
+            Console.ReadLine();
         }
     }
 }
