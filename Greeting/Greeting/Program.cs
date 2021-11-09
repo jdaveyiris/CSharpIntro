@@ -20,7 +20,7 @@ namespace Greeting
             Console.ReadLine();
             
             ---------
-            
+            //Exercise 4.1:
             Console.WriteLine("What is your name?");
             Console.Write("Type your first name:");
             string myFirstName;
@@ -48,7 +48,7 @@ namespace Greeting
             Console.ReadLine();
 
             ----------
-
+            //Exercise 3.1 & 3.2:
             Console.Write("What is the circles radius? ");
             string inputRadius = Console.ReadLine();
 
@@ -97,10 +97,78 @@ namespace Greeting
 
             ---------
 
-            */
+            for (int i = 0; i < 10; i++)
+            {
+               if (i == 7)
+                {
+                    Console.WriteLine("I found seven! But whats in the box?");
+                    break;
+                }
+            }
+            Console.ReadLine();
+           
+
+            int[] numbers = new int[] { 4, 8, 15, 16, 23, 42 };
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(numbers[i]);
+            }
+            Console.ReadLine();
+            
+            foreach (int x in numbers)
+            {
+                Console.WriteLine(x);
+            }
+            Console.ReadLine();
 
 
+            string zig = "Always look on the bright side of life.";
 
+            char[] charArray = zig.ToCharArray();
+            Array.Reverse(charArray);
+
+            foreach (char zigChar in charArray)
+            {
+                Console.Write(zigChar);
+            }
+            Console.ReadLine();
+           
+            ----------
+            
+            //Exercise 5.1:
+
+            Console.WriteLine("Please enter the number you wish to add up to: ");
+            string inputNum = Console.ReadLine();
+
+            int maxNum = int.Parse(inputNum);
+            int total = 0;
+
+            for (int i = 0; i <= maxNum; i++)
+            {
+                total = total + i;
+            }
+            Console.WriteLine(total);
+            Console.ReadLine();
+            
+            //Exercise 5.2:
+
+            Console.WriteLine("Please enter the number you wish to multiply up to: ");
+            string inputNum = Console.ReadLine();
+            int maxNum = int.Parse(inputNum);
+            string toDisplay = "";
+
+            for (int secondNumber = 2; secondNumber <= maxNum; secondNumber++)
+            {
+                for (int firstNumber = 2; firstNumber <= maxNum; firstNumber++)
+                {
+                    int total = firstNumber * secondNumber;
+                    toDisplay = ($"{ firstNumber}  x   { secondNumber}  =  { total} ");
+                    Console.WriteLine(toDisplay);
+                }
+            }
+            Console.ReadLine();
+           */
         }
     }
 }
