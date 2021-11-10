@@ -168,7 +168,68 @@ namespace Greeting
                 }
             }
             Console.ReadLine();
-           */
+
+            -------------
+
+            Exercise 5.4:
+            
+            Console.Write("Enter number of words: ");
+            string numWords = Console.ReadLine();
+            int totWords = int.Parse(numWords);
+
+            string[] words = new string[totWords];
+           
+            for (int i = 0; i < totWords; i++)
+            {
+                Console.Write($"Please enter word {i+1} :");
+                words[i] = Console.ReadLine();
+            }
+            Array.Reverse(words);
+
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+            Console.ReadLine();
+
+            //Exercise 5.5: To come back to!
+
+            -------------
+                
+
+            //Exercise 6.1:
+
+           
+            bool displayProg = true;
+
+            while (displayProg)
+            {
+                displayProg = Prog();
+            }
+            */
+
+        }
+
+        private static bool Prog()
+        {
+            Console.WriteLine("Enter a word: ");
+            string word = Console.ReadLine();
+            
+            
+            
+            if (word != "")
+            {
+                //how to build sentence through each iteration of the loop without overwriting? 
+                Console.WriteLine($"{ word} accepted.");
+                
+                return true;
+            } else
+            {
+                Console.WriteLine("This is the end.");
+                Console.ReadLine();
+                return false;
+            }
+            
         }
     }
 }
