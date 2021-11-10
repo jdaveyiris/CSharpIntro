@@ -21,7 +21,7 @@ namespace Calculator
                 numbers[i-1] = double.Parse(Console.ReadLine());
             }
 
-            double total = 0;
+            double total = numbers[0];
 
             foreach (double value in numbers)
             {
@@ -38,16 +38,8 @@ namespace Calculator
                     total = total * value;
                 }
                 else
-                {
-                    if(total == 0)
-                    {
-                        total = value;
-                    }
-                    else
-                    {
-                        total = total / value;
-                    }
-                    
+                {                   
+                        total = total / value;                               
                 }
             }
 
