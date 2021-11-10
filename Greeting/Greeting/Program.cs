@@ -196,7 +196,7 @@ namespace Greeting
 
             -------------
                 
-
+            */
             //Exercise 6.1:
 
            
@@ -206,30 +206,36 @@ namespace Greeting
             {
                 displayProg = Prog();
             }
-            */
+            
 
         }
 
         private static bool Prog()
+            //not all code paths return a value. Not entirly sure how I would return true or false to Prog()?
+            //If I can get past that then I can test the while (complete) section.
         {
-            Console.WriteLine("Enter a word: ");
-            string word = Console.ReadLine();
-            
-            
-            
-            if (word != "")
+            string sentence = "";
+            bool complete = true; 
+
+            while (complete)
             {
-                //how to build sentence through each iteration of the loop without overwriting? 
-                Console.WriteLine($"{ word} accepted.");
+                Console.WriteLine("Enter a word: ");
+                string word = Console.ReadLine();
+                if (word != "")
+                {
+                    sentence = sentence + " " + word;
+                    Console.WriteLine("Current sentence: " + sentence);
+                    Console.ReadLine();
+                    complete = true;
+                }
+                else
+                {
+                    Console.WriteLine("Final sentence: " + sentence);
+                    Console.ReadLine();
+                    complete = false;
+                }
                 
-                return true;
-            } else
-            {
-                Console.WriteLine("This is the end.");
-                Console.ReadLine();
-                return false;
-            }
-            
+            } 
         }
     }
 }
