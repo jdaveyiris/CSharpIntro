@@ -63,10 +63,10 @@ namespace Calculator
 
         private static int GetHowMany(string operation)
         {
-            /*
+            
             //Third attempt. It now loops the How many numbers but I am stuck on returning numTot. 
             bool getNumber = true;
-            int numTot;
+            int numTot = 0;
             while (getNumber)
 
             {
@@ -84,14 +84,12 @@ namespace Calculator
                     Console.WriteLine("That will not work sadly.");
                     Console.ReadLine();
                     getNumber = true;
-                }
-                return numTot;
+                }                
             }
+            return numTot;
             //why can't I get numTot to return from this line (scope of the method). It only seems to exist in the while {}
-            //and I'm not aware of a method of moving it out to the GetHowMany()
-            */
+            //and I'm not aware of a method of moving it out to the GetHowMany() . . . numTot = 0 to initiate the variable!!!
 
-            Console.Write($"How many numbers do you wish to {operation} ? ");
             /*
             // Second attempt at getting TryParse to work with some string added (Exercise 7.2)
             int numTot;
@@ -107,10 +105,7 @@ namespace Calculator
                 Console.ReadLine();
                 return // need a method to return to line 94?
             }
-            */
-
-
-            /*
+            
             // First attempt at getting TryParse working myself. 
             int number;
             bool success = int.TryParse(Console.ReadLine(), out number);
@@ -126,8 +121,9 @@ namespace Calculator
                 return 1;
             }
             */
-            int numTot = int.Parse(Console.ReadLine());
-            return numTot;
+            //Console.Write($"How many numbers do you wish to {operation} ? ");
+            //int numTot = int.Parse(Console.ReadLine());
+            //return numTot;
         }
 
         private static void DoCalculation(string operation, int numTot)
