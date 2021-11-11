@@ -10,7 +10,19 @@ namespace Calculator
             bool carryOn = true;
             while (carryOn)
             {
-                PerformOneCalculation();
+                int calculationMode = AskForCalculatorMode();
+
+                if (calculationMode == NumberCalculator)
+                {
+                    PerformOneCalculation();
+                } else if (calculationMode == DateCalculator)
+                {
+                    PerformOneDateCalculation();
+                } else
+                {
+                    Console.WriteLine("I need to add something to make you press 1 or 2.");
+                    Console.ReadLine();
+                }
             }
         }
 
@@ -20,11 +32,26 @@ namespace Calculator
             Console.ReadLine();
         }
 
+        private const int NumberCalculator = 1;
+        private const int DateCalculator = 2;
+
+        private static int AskForCalculatorMode()
+        {
+            Console.WriteLine("Which calculator mode would you like?\n1) Numbers \n2) Dates ");
+            return int.Parse(Console.ReadLine());
+            
+        }
+
         private static void PerformOneCalculation()
         {
             var operation = GetOperator();
             var numTot = GetHowMany(operation);
             DoCalculation(operation, numTot);
+        }
+
+        private static void PerformOneDateCalculation()
+        {
+            AddDaysOnToDate();
         }
 
         private static string GetOperator()
@@ -36,6 +63,33 @@ namespace Calculator
 
         private static int GetHowMany(string operation)
         {
+            /*
+            //Third attempt. It now loops the How many numbers but I am stuck on returning numTot. 
+            bool getNumber = true;
+            int numTot;
+            while (getNumber)
+
+            {
+                Console.Write($"How many numbers do you wish to {operation} ? ");
+                
+                bool successfulParse = int.TryParse(Console.ReadLine(), out numTot);
+                if (successfulParse)
+                {
+                    Console.WriteLine($"Great you entered {numTot}");
+                    Console.ReadLine();
+                    getNumber = false;
+                }
+                else
+                {
+                    Console.WriteLine("That will not work sadly.");
+                    Console.ReadLine();
+                    getNumber = true;
+                }
+                return numTot;
+            }
+            //why can't I get numTot to return from this line (scope of the method). It only seems to exist in the while {}
+            //and I'm not aware of a method of moving it out to the GetHowMany()
+            */
 
             Console.Write($"How many numbers do you wish to {operation} ? ");
             /*
@@ -51,7 +105,7 @@ namespace Calculator
             {
                 Console.WriteLine("That will not work sadly.");
                 Console.ReadLine();
-                return // need a method to return to line 40?
+                return // need a method to return to line 94?
             }
             */
 
@@ -110,6 +164,24 @@ namespace Calculator
             Console.WriteLine("The answer is " + total);
             Console.ReadLine();
         }
+
+        private static void AddDaysOnToDate()
+        {
+            Console.WriteLine("What date would you like to add days to? (##/##/####)");
+            DateTime givenDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("How many days would you like to add on?");
+            int daysAdding = int.Parse(Console.ReadLine());
+            DateTime resultingDate = givenDate.AddDays(daysAdding);
+            Console.WriteLine("The intial date was {0} and with {1} added on the new date is {2}.",
+                givenDate.ToShortDateString(), 
+                daysAdding,
+                resultingDate.ToShortDateString());
+            Console.ReadLine();
+            
+        }
+        
+
+
     }
     
 }
