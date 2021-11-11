@@ -196,7 +196,7 @@ namespace Greeting
 
             -------------
                 
-            */
+            
             //Exercise 6.1:
 
            
@@ -206,10 +206,86 @@ namespace Greeting
             {
                 displayProg = Prog();
             }
-            
+
+            ----------
+
+            DateTime myValue = DateTime.Now;
+            //Console.WriteLine(myValue.ToString());
+            //Console.WriteLine(myValue.ToShortDateString());
+            //Console.WriteLine(myValue.ToLongDateString());
+            //Console.WriteLine(myValue.ToLongTimeString());
+
+            //Console.WriteLine(myValue.AddDays(3).ToLongDateString());
+            //Console.WriteLine(myValue.AddHours(-3).ToLongTimeString());
+
+            //DateTime myBirthday = new DateTime(1901, 4, 26);
+            //Console.WriteLine(myBirthday.ToShortDateString());
+
+            DateTime myBirthday = DateTime.Parse("26/04/1901");
+            TimeSpan myAge = DateTime.Now.Subtract(myBirthday);
+            Console.WriteLine(myAge.TotalDays);
+            */
+
+            Console.WriteLine("Welcome, what is your name? ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Thankyou, and what is your birthdate (##/##/####)?");
+            DateTime theBirthdate = DateTime.Parse(Console.ReadLine());
+            TimeSpan Age = DateTime.Now.Subtract(theBirthdate);
+
+            if ((name.ToUpper() == name && name.Length >= 12) && Age.TotalDays <= 3650)
+            {
+                Console.WriteLine("Well that is a rather loud and long name!");
+                Console.WriteLine($"Welcome {name.ToLower()}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            } else if ((name.ToUpper() == name && name.Length >= 12) && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("Well that is a rather loud and long name!");
+                Console.WriteLine($"Welcome {name.ToLower()}");
+                Console.ReadLine();
+            } else if (name.Length >= 12 && Age.TotalDays <= 3650)
+            {
+                Console.WriteLine("That's a long name you have there.");
+                Console.WriteLine($"Welcome {name}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            }        
+               else if (name.Length >= 12 && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("That's a long name you have there.");
+                Console.WriteLine($"Welcome {name}");
+                Console.ReadLine();
+            } else if (name.ToUpper() == name && Age.TotalDays <= 3650)
+            {
+                Console.WriteLine("No need to shout!");
+                Console.WriteLine($"Welcome {name.ToLower()}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            }           
+               else if (name.ToUpper() == name && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("No need to shout!");
+                Console.WriteLine($"Welcome {name.ToLower()}");
+                Console.ReadLine();
+            } else
+            {
+                Console.WriteLine($"Welcome {name}");
+                Console.ReadLine();
+            }
+                   
+
+
+
+
+
+
+
+
+
 
         }
 
+
+
+        /*
         private static bool Prog()
             //not all code paths return a value. Not entirly sure how I would return true or false to Prog()?
             //If I can get past that then I can test the while (complete) section.
@@ -226,16 +302,15 @@ namespace Greeting
                     sentence = sentence + " " + word;
                     Console.WriteLine("Current sentence: " + sentence);
                     Console.ReadLine();
-                    complete = true;
+                    return complete = true;
                 }
                 else
                 {
                     Console.WriteLine("Final sentence: " + sentence);
                     Console.ReadLine();
-                    complete = false;
+                    return complete = false;
                 }
-                
             } 
-        }
+        }*/
     }
 }

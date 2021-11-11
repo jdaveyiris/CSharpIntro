@@ -39,6 +39,25 @@ namespace Calculator
 
             Console.Write($"How many numbers do you wish to {operation} ? ");
             /*
+            // Second attempt at getting TryParse to work with some string added (Exercise 7.2)
+            int numTot;
+            bool successfulParse = int.TryParse(Console.ReadLine(), out numTot);
+            if (successfulParse)
+            {
+                Console.WriteLine("Great");
+                Console.ReadLine();
+                return numTot;
+            } else
+            {
+                Console.WriteLine("That will not work sadly.");
+                Console.ReadLine();
+                return // need a method to return to line 40?
+            }
+            */
+
+
+            /*
+            // First attempt at getting TryParse working myself. 
             int number;
             bool success = int.TryParse(Console.ReadLine(), out number);
             if (success)
@@ -52,7 +71,6 @@ namespace Calculator
                 Console.WriteLine($"Attempted conversion of '{Console.ReadLine() ?? "<null>"}' failed.");
                 return 1;
             }
-            // Could not get TryParse working myself. 
             */
             int numTot = int.Parse(Console.ReadLine());
             return numTot;
