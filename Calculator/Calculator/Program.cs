@@ -14,12 +14,12 @@ namespace Calculator
 
                 if (calculationMode == RunNumberCalculator)
                 {
-                    //Not sure as to why Program.cs does not recognise NumberCalculator. 
-                    new NumberCalculator.PerformOneCalculation();
+                    
+                    new NumberCalculator().PerformOneCalculation();
 
                 } else if (calculationMode == RunDateCalculator)
                 {
-                    new DateCalculator.PerformOneDateCalculation();
+                    new DateCalculator().PerformOneDateCalculation();
                 } else
                 {
                     Console.WriteLine("I need to add something to make you press 1 or 2.");
