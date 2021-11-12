@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Calculator
 {
@@ -16,11 +17,14 @@ namespace Calculator
                 {
                     
                     new NumberCalculator().PerformOneCalculation();
-
-                } else if (calculationMode == RunDateCalculator)
+                    //LogExe(NumberCalculator().PerformOneCalculation());
+                }
+                else if (calculationMode == RunDateCalculator)
                 {
                     new DateCalculator().PerformOneDateCalculation();
-                } else
+                    //LogExe(DateCalculator().PerformOneDateCalculation());
+                }
+                else
                 {
                     Console.WriteLine("I need to add something to make you press 1 or 2.");
                     Console.ReadLine();
@@ -43,6 +47,8 @@ namespace Calculator
             return int.Parse(Console.ReadLine());
             
         }
+
+       
 
         /*
         private static void PerformOneCalculation()
