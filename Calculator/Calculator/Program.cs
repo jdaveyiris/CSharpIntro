@@ -12,12 +12,14 @@ namespace Calculator
             {
                 int calculationMode = AskForCalculatorMode();
 
-                if (calculationMode == NumberCalculator)
+                if (calculationMode == RunNumberCalculator)
                 {
-                    PerformOneCalculation();
-                } else if (calculationMode == DateCalculator)
+                    //Not sure as to why Program.cs does not recognise NumberCalculator. 
+                    new NumberCalculator.PerformOneCalculation();
+
+                } else if (calculationMode == RunDateCalculator)
                 {
-                    PerformOneDateCalculation();
+                    new DateCalculator.PerformOneDateCalculation();
                 } else
                 {
                     Console.WriteLine("I need to add something to make you press 1 or 2.");
@@ -32,8 +34,8 @@ namespace Calculator
             Console.ReadLine();
         }
 
-        private const int NumberCalculator = 1;
-        private const int DateCalculator = 2;
+        private const int RunNumberCalculator = 1;
+        private const int RunDateCalculator = 2;
 
         private static int AskForCalculatorMode()
         {
@@ -42,18 +44,20 @@ namespace Calculator
             
         }
 
+        /*
         private static void PerformOneCalculation()
         {
             var operation = GetOperator();
             var numTot = GetHowMany(operation);
             DoCalculation(operation, numTot);
         }
-
+        
         private static void PerformOneDateCalculation()
         {
             AddDaysOnToDate();
         }
 
+        /*
         private static string GetOperator()
         {
             Console.WriteLine("Please enter an operator from the following: +, -, * or /: ");
@@ -120,12 +124,12 @@ namespace Calculator
                 Console.WriteLine($"Attempted conversion of '{Console.ReadLine() ?? "<null>"}' failed.");
                 return 1;
             }
-            */
+            
             //Console.Write($"How many numbers do you wish to {operation} ? ");
             //int numTot = int.Parse(Console.ReadLine());
             //return numTot;
-        }
-
+           }
+            
         private static void DoCalculation(string operation, int numTot)
         {
             int[] numbers = new int[numTot];
@@ -160,7 +164,7 @@ namespace Calculator
             Console.WriteLine("The answer is " + total);
             Console.ReadLine();
         }
-
+        
         private static void AddDaysOnToDate()
         {
             Console.WriteLine("What date would you like to add days to? (##/##/####)");
@@ -173,10 +177,10 @@ namespace Calculator
                 daysAdding,
                 resultingDate.ToShortDateString());
             Console.ReadLine();
-            
+
         }
         
-
+        */
 
     }
     

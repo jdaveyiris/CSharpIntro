@@ -224,7 +224,7 @@ namespace Greeting
             DateTime myBirthday = DateTime.Parse("26/04/1901");
             TimeSpan myAge = DateTime.Now.Subtract(myBirthday);
             Console.WriteLine(myAge.TotalDays);
-            */
+            
 
             Console.WriteLine("Welcome, what is your name? ");
             string name = Console.ReadLine();
@@ -270,20 +270,14 @@ namespace Greeting
                 Console.WriteLine($"Welcome {name}");
                 Console.ReadLine();
             }
-                   
-
-
-
-
-
-
-
-
-
+                 */
+            Person newPerson = new Person();
+            Person.GetNameAndAge();
+            
 
         }
 
-
+        
 
         /*
         private static bool Prog()
@@ -312,5 +306,75 @@ namespace Greeting
                 }
             } 
         }*/
+    }
+
+    class Person
+    {
+        public static void GetNameAndAge()
+        {
+            Console.WriteLine("Welcome, what is your name? ");
+            string Name = Console.ReadLine();
+            Console.WriteLine("Thankyou, and what is your birthdate (##/##/####)?");
+            DateTime theBirthdate = DateTime.Parse(Console.ReadLine());
+            TimeSpan Age = DateTime.Now.Subtract(theBirthdate);
+            GetResponse(Name, Age);
+        }
+
+        private static bool IsUnderTen(TimeSpan Age)
+        {
+            if (Age.TotalDays <= 3650)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private static void GetResponse(string Name, TimeSpan Age)
+        {
+            string name = Name;
+            if (name.ToUpper() == name && name.Length >= 12 && IsUnderTen(Age))
+            {
+                Console.WriteLine("Well that is a rather loud and long name!");
+                Console.WriteLine($"Welcome {name.ToLower()}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            }
+            else if ((name.ToUpper() == name && name.Length >= 12) && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("Well that is a rather loud and long name!");
+                Console.WriteLine($"Welcome {name.ToLower()}");
+                Console.ReadLine();
+            }
+            else if (name.Length >= 12 && IsUnderTen(Age))
+            {
+                Console.WriteLine("That's a long name you have there.");
+                Console.WriteLine($"Welcome {name}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            }
+            else if (name.Length >= 12 && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("That's a long name you have there.");
+                Console.WriteLine($"Welcome {name}");
+                Console.ReadLine();
+            }
+            else if (name.ToUpper() == name && IsUnderTen(Age))
+            {
+                Console.WriteLine("No need to shout!");
+                Console.WriteLine($"Welcome {name.ToLower()}, aren't you a bit young to be here?");
+                Console.ReadLine();
+            }
+            else if (name.ToUpper() == name && Age.TotalDays > 3650)
+            {
+                Console.WriteLine("No need to shout!");
+                Console.WriteLine($"Welcome {name.ToLower()}");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine($"Welcome {name}");
+                Console.ReadLine();
+            }
+        }
     }
 }
